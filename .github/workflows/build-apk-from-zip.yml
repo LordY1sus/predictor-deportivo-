@@ -34,6 +34,7 @@ jobs:
           PROJECT_DIR="$(dirname "$(find source -name buildozer.spec -print -quit)")"
           test -n "$PROJECT_DIR"
           echo "PROJECT_DIR=$PROJECT_DIR" >> "$GITHUB_ENV"
+          sed -i -E 's/^[[:space:]]*android.minapi[[:space:]]*=.*/android.minapi = 24/' "$PROJECT_DIR/buildozer.spec"
 
       - name: Compile Python sources
         run: |
