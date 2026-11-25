@@ -1,0 +1,28 @@
+[project]
+name = "sportsquant"
+version = "1.0.0"
+description = "Proyecciones personales de fútbol, baloncesto y béisbol (Monte Carlo)"
+requires-python = ">=3.11"
+# Versiones verificadas: numpy 2.5.4 tiene rueda binaria para Android en pypi.flet.dev.
+# Si configuras zona horaria por nombre (Settings.timezone) añade "tzdata".
+dependencies = [
+    "flet==1.1.3",
+    "numpy==2.5.4",
+    "httpx==0.28.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.flet]
+org = "dev.sportsquant"
+product = "SportsQuant"
+company = "Uso personal"
+copyright = "Uso personal"
+
+[tool.flet.app]
+path = "src"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
